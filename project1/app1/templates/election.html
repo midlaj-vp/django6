@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+    <style>
+        * {
+
+            margin: 0;
+
+        }
+
+        table,
+        td,
+        th {
+            border-collapse: collapse;
+            text-align: center;
+            padding: 10px 40px;
+            margin-top: 80px;
+            margin-left: 18%;
+            background-color: rgb(214, 228, 10);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            position: relative;
+
+
+        }
+
+        .main img {
+            position: absolute;
+            margin-top: -110px;
+        }
+
+        th {
+            color: rgb(212, 18, 15);
+        }
+
+        img {
+            width: 100%;
+        }
+        .add-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            
+        }
+
+        .add-button:hover {
+            background-color: #218838;
+        }
+
+        button{
+            text-align: right;
+            background-color: transparent;
+            border-radius: 10px;
+           margin-top: 200px;
+           margin-left: 60%;
+            position: absolute;
+            height: 50px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img src="{% static '/images/bg1.jpg'%}" alt="images">
+               <button><a class="add-button" href="{% url 'add' %}">NEW PAGE</a></button> 
+
+    </div>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>father name</th>
+            <th>date of birth</th>
+            <th>house name</th>
+            <th>ward number</th>
+        </tr>
+        {%for i in a%}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.father_name}}</td>
+            <td>{{i.date_of_birth}}</td>
+            <td>{{i.house_name}}</td>
+            <td>{{i.ward_number}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+   
+   
+
+</body>
+
+</html>
